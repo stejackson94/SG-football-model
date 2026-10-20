@@ -294,7 +294,7 @@ wheels = [
 ]
 
 [[package]]
-name = "template-app"
+name = "sg-football-model"
 version = "0.1.0"
 source = { editable = "." }
 

@@ -3,15 +3,16 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "template-app"
+name = "sg-football-model"
 version = "0.1.0"
-description = "A modern Python project template using UV package manager"
+description = "Football ML/AI platform: match-outcome models benchmarked against bookmaker odds, served via FastAPI, with a grounded LLM analyst"
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "Your Name", email = "your.email@example.com" },
+    { name = "Ste Jackson", email = "stephenjackson.career@outlook.com" },
+    { name = "George" },
 ]
-keywords = ["python", "template", "uv"]
+keywords = ["football", "machine-learning", "mlflow", "fastapi", "llm", "rag"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -19,7 +20,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 requires-python = ">=3.12"
 dependencies = [
@@ -34,10 +35,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/username/template-uv-python"
-Repository = "https://github.com/username/template-uv-python.git"
-Issues = "https://github.com/username/template-uv-python/issues"
-Documentation = "https://github.com/username/template-uv-python#readme"
+Homepage = "https://github.com/stejackson94/SG-football-model"
+Repository = "https://github.com/stejackson94/SG-football-model.git"
+Issues = "https://github.com/stejackson94/SG-football-model/issues"
+Documentation = "https://github.com/stejackson94/SG-football-model#readme"
 
 [tool.uv]
 managed = true

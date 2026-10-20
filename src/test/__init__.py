@@ -1,1 +1,1 @@
-"""Test suite for template-app."""
+"""Test suite for sg-football-model."""
