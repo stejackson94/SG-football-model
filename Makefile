@@ -37,3 +37,9 @@ format: ## Format code with ruff
 lint: ## Run ruff linting and apply safe fixes
 	@echo "🔧 Linting and fixing code: Running ruff check --fix"
 	uv run ruff check . --fix
+
+docs-serve: ## Serve the docs site locally with live reload
+	uv run --all-extras zensical serve
+
+docs-build: ## Build the docs site with strict link checking
+	uv run --all-extras zensical build --clean --strict

@@ -1,5 +1,7 @@
 # SG Football Model
 
+**Docs:** https://stejackson94.github.io/SG-football-model/
+
 A football ML/AI project built by Ste and George to learn and build up their portfolios. It's a personal project, unrelated to any employer's data or systems.
 
 ## Goals
@@ -139,6 +141,17 @@ uv run python src/main.py
 uv run pytest
 ```
 
+### Documentation
+
+The docs site is built with [Zensical](https://zensical.org/) from `docs/` and published to GitHub Pages.
+
+- `make docs-serve` — Serve the site locally with live reload
+- `make docs-build` — Build the site with `--strict`, so broken links fail
+
+The `Docs` workflow builds on pull requests that touch `docs/**`, `mkdocs.yml` or `README.md`, and deploys on merge to `main` when those paths change. Code-only merges don't redeploy. The overview page renders this README, so edit it here.
+
+The site is public: keep homelab hostnames, IPs and Tailscale details out of `docs/`.
+
 ### Docker
 
 Build and run with Docker:
@@ -166,7 +179,8 @@ Monorepo layout. Folders other than `src/` are placeholders until their roadmap 
 ├── db/                     # PostgreSQL schema and Alembic migrations (P1)
 ├── infra/helm/             # Helm charts for homelab Kubernetes (P4)
 ├── monitoring/             # Prometheus and Grafana config (P7)
-├── docs/                   # Design notes and decisions
+├── docs/                   # Docs site source: ADRs, data, models, API, runbooks
+├── mkdocs.yml              # Docs site config and nav (read by Zensical)
 ├── scripts/                # Data download and helper scripts
 ├── data/                   # Local data only, git-ignored
 ├── .github/workflows/      # GitHub Actions CI/CD
