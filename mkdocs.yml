@@ -1,0 +1,56 @@
+site_name: SG Football Model
+site_description: Football ML/AI platform — match-outcome models, FastAPI serving and a grounded LLM analyst
+site_url: https://stejackson94.github.io/SG-football-model/
+repo_url: https://github.com/stejackson94/SG-football-model
+repo_name: stejackson94/SG-football-model
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+strict: true
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      check_paths: true
+
+nav:
+  - Overview: index.md
+  - ADRs:
+      - adr/index.md
+      - adr/0001-docs-site-zensical.md
+  - Data: data/index.md
+  - Models: models/index.md
+  - API: api/index.md
+  - Runbooks: runbooks/index.md
