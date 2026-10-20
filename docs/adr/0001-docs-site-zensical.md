@@ -26,4 +26,4 @@ Use [Zensical](https://zensical.org/), the successor to Material for MkDocs from
 - The site is public. Homelab details (hostnames, IPs, Tailscale config) must stay out of `docs/`.
 - Zensical is pre-1.0, so it's pinned below 0.1 and upgrades need a local `make docs-build` check. Not every MkDocs plugin is supported yet; check the [compatibility page](https://zensical.org/compatibility/) before adding one.
 - Rollback is cheap: because config stays in `mkdocs.yml`, switching back to MkDocs Material means swapping the `docs` extra and the build commands.
-- Changing the Zensical version in `pyproject.toml` or `uv.lock` alone doesn't trigger a docs build. Run the workflow manually after bumping it.
+- `uv.lock` is in the workflow's path filters, so dependency bumps (including Dependabot's weekly grouped PRs) get a strict docs build. The trade-off is that any lockfile change on `main` redeploys the site.

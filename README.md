@@ -148,7 +148,7 @@ The docs site is built with [Zensical](https://zensical.org/) from `docs/` and p
 - `make docs-serve` — Serve the site locally with live reload
 - `make docs-build` — Build the site with `--strict`, so broken links fail
 
-The `Docs` workflow builds on pull requests that touch `docs/**`, `mkdocs.yml` or `README.md`, and deploys on merge to `main` when those paths change. Code-only merges don't redeploy. The overview page renders this README, so edit it here.
+The `Docs` workflow builds on pull requests that touch `docs/**`, `mkdocs.yml`, `README.md` or `uv.lock`, and deploys on merge to `main` when those paths change. Code-only merges don't redeploy. The overview page renders this README, so edit it here.
 
 The site is public: keep homelab hostnames, IPs and Tailscale details out of `docs/`.
 
