@@ -14,7 +14,7 @@ The ticket's default was MkDocs with the Material theme. Material is now in main
 
 Use [Zensical](https://zensical.org/), the successor to Material for MkDocs from the same team. The site builds from `docs/` and is published to GitHub Pages by GitHub Actions.
 
-- The project is Python-only, so Zensical installs through uv as the `docs` extra. Docusaurus would add a Node toolchain for no gain.
+- The project is Python-only, so Zensical installs through uv as the `docs` dependency group. Docusaurus would add a Node toolchain for no gain.
 - Config stays in `mkdocs.yml`, which Zensical reads natively.
 - The site builds with `--strict` on pull requests, so broken links fail CI.
 - The deploy only runs on pushes to `main` that touch docs inputs (`docs/**`, `mkdocs.yml`, `README.md` and the workflow file). Code-only merges don't redeploy.
@@ -25,5 +25,5 @@ Use [Zensical](https://zensical.org/), the successor to Material for MkDocs from
 - The overview page renders `README.md`, so the README stays the single source for project goals and setup.
 - The site is public. Homelab details (hostnames, IPs, Tailscale config) must stay out of `docs/`.
 - Zensical is pre-1.0, so it's pinned below 0.1 and upgrades need a local `make docs-build` check. Not every MkDocs plugin is supported yet; check the [compatibility page](https://zensical.org/compatibility/) before adding one.
-- Rollback is cheap: because config stays in `mkdocs.yml`, switching back to MkDocs Material means swapping the `docs` extra and the build commands.
+- Rollback is cheap: because config stays in `mkdocs.yml`, switching back to MkDocs Material means swapping the `docs` dependency group and the build commands.
 - `uv.lock` is in the workflow's path filters, so dependency bumps (including Dependabot's weekly grouped PRs) get a strict docs build. The trade-off is that any lockfile change on `main` redeploys the site.
