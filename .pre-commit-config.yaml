@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 'v5.0.0'
+    rev: 'v6.0.0'
     hooks:
       - id: check-case-conflict
       - id: check-merge-conflict
@@ -12,10 +12,11 @@ repos:
       - id: check-toml
       - id: check-yaml
 
+  # Keep rev in step with the ruff version in uv.lock.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 'v0.11.5'
+    rev: 'v0.17.4'
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--exit-non-zero-on-fix, --config=pyproject.toml]
       - id: ruff-format
         args: [--config=pyproject.toml]

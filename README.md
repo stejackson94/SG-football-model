@@ -102,9 +102,9 @@ The data comes from the [football-data.co.uk](https://www.football-data.co.uk/da
    make setup
    ```
 
-2. **Install dependencies:**
+2. **Create your local env file:**
    ```bash
-   uv sync --extra dev
+   cp .env.example .env
    ```
 
 3. **Run code quality checks:**
@@ -122,12 +122,14 @@ The data comes from the [football-data.co.uk](https://www.football-data.co.uk/da
 
 ### Development
 
+Run `make` (or `make help`) to list every target.
+
 - `make setup` — Initialize development environment with pre-commit hooks
-- `make install-dev` — Install development dependencies
-- `make check` — Run all code quality checks (linting, formatting)
+- `make install-dev` — Install the project and the `dev` dependency group
+- `make check` — Verify lock file, lint and formatting without changing files (what CI runs)
+- `make test` — Run pytest with coverage
 - `make format` — Format code with ruff
 - `make lint` — Lint and fix code with ruff
-- `make commit` — Interactive conventional commit helper
 
 ### Running the Application
 
@@ -138,7 +140,7 @@ uv run python src/main.py
 ### Testing
 
 ```bash
-uv run pytest
+make test
 ```
 
 ### Documentation
@@ -204,15 +206,17 @@ dependencies = [
     "requests>=2.28.0",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    "pytest>=7.4.0",
-    "ruff>=0.1.0",
-    "pre-commit>=4.5.0",
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+    "pre-commit>=4.7.0",
 ]
 ```
 
-Then run: `uv sync --extra dev`
+Dev tooling lives in uv dependency groups, not extras. `uv sync` installs the `dev` group by default; add `--group docs` for the docs toolchain. Or use `uv add <pkg>` / `uv add --dev <pkg>` to edit `pyproject.toml` and the lock together.
+
+When bumping ruff, update `rev` in `.pre-commit-config.yaml` to the same version so local hooks and CI agree.
 
 ### Ruff Configuration
 Customize linting and formatting rules in `pyproject.toml`:
